@@ -1,26 +1,37 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 export default function GameCard(props) {
-  const { title, publisher, amountPlayed } = props.game;
-  const [ count, setCount ] = useState(amountPlayed);
+  const {
+    title,
+    publisher,
+    imageUrl,
+    description,
+    amountPlayed,
+    id,
+  } = props.game;
+  const [count, setCount] = useState(amountPlayed);
 
   function increment() {
     setCount((prevCount) => prevCount + 1);
   }
-  
+
   function decrement() {
     setCount((prevCount) => prevCount - 1);
   }
 
   return (
     <div className="game-card">
-      {/* <img src={`/public/images/Sagrada.jpg`}   {`/images/${title}.jpg`} alt="" /> */}
-      <img src={`${window.location.origin}/img/${title}.jpg`} alt="" />
+      {imageUrl && <img src={imageUrl} alt={`Box of ${title}`} />}
       <h4>{title}</h4>
-      <p>{publisher}</p>
-      <p>{count}</p>
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
+      <p>Published by: {publisher}</p>
+      <p>{description}</p>
+      <p>
+        Times played:{" "}
+        <button onClick={decrement}>-</button> 
+        {" "}{count}{" "}
+        <button onClick={increment}>+</button>
+      </p>
+      <button onClick={() => props.onDelete(id)}>Remove</button>
     </div>
   );
 }
