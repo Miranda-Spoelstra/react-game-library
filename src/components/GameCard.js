@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function GameCard(props) {
   const {
@@ -9,15 +9,6 @@ export default function GameCard(props) {
     amountPlayed,
     id,
   } = props.game;
-  const [count, setCount] = useState(amountPlayed);
-
-  function increment() {
-    setCount((prevCount) => prevCount + 1);
-  }
-
-  function decrement() {
-    setCount((prevCount) => prevCount - 1);
-  }
 
   return (
     <div className="game-card">
@@ -26,10 +17,8 @@ export default function GameCard(props) {
       <p>Published by: {publisher}</p>
       <p>{description}</p>
       <p>
-        Times played:{" "}
-        <button onClick={decrement}>-</button> 
-        {" "}{count}{" "}
-        <button onClick={increment}>+</button>
+        Times played: <button onClick={() => props.onDecrement(props.game)}>-</button>{" "}
+        {amountPlayed} <button onClick={() => props.onIncrement(props.game)}>+</button>
       </p>
       <button onClick={() => props.onDelete(id)}>Remove</button>
     </div>

@@ -79,7 +79,7 @@ export default class GameForm extends Component {
             onChange={this.handleChange}
           />{" "}
         </label>
-        <button onClick={this.handleSubmit}>Add</button>
+        <button onClick={this.handleSubmit}>Add</button>{" "}
         <button onClick={this.resetForm}>Reset</button>
       </form>
     );
