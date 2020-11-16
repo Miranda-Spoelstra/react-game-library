@@ -12,11 +12,12 @@ export default function GameDisplay(props) {
         <table className="game-table">
           <thead>
             <tr>
-              <th></th>
-              <th>Title</th>
-              <th>Publisher</th>
-              <th>Description</th>
-              <th>Times played</th>
+              <th className="img-col-head"></th>
+              <th className="title-col-head">Title</th>
+              <th className="pub-col-head">Publisher</th>
+              <th className="desc-col-head">Description</th>
+              <th className="played-col-head">Times played</th>
+              <th className="del-col-head"></th>
             </tr>
           </thead>
           <tbody>

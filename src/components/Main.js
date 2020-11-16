@@ -5,8 +5,7 @@ import GameForm from "./GameForm.js";
 
 export default function Main(props) {
   const [gameData, setGameData] = useState(props.gameData);
-  const [showForm, setShowForm] = useState(false);
-  const [tableView, settableView] = useState(true);
+  const {tableView, showForm} = props;
 
   function onSubmit(data) {
     const newGame = {
@@ -40,23 +39,10 @@ export default function Main(props) {
     setGameData(data);
   }
 
-  function toggleForm() {
-    setShowForm((prev) => !prev);
-  }
-
-  function toggleView() {
-    settableView((prev) => !prev);
-  }
-
   return (
     <main>
-      <h2>My owned boardgames</h2>
-      <button onClick={toggleForm}>Add more games</button>
-      <br />
+      <h2>An overview</h2>
       {showForm && <GameForm onSubmit={onSubmit} />}
-      <button onClick={toggleView}>
-        View as {tableView ? "cards" : "table"}
-      </button>
       <GameDisplay
         gameData={gameData}
         tableView={tableView}

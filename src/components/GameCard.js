@@ -17,10 +17,20 @@ export default function GameCard(props) {
       <p>Published by: {publisher}</p>
       <p>{description}</p>
       <p>
-        Times played: <button onClick={() => props.onDecrement(props.game)}>-</button>{" "}
-        {amountPlayed} <button onClick={() => props.onIncrement(props.game)}>+</button>
+        Times played:{" "}
+        {amountPlayed > 0 && (
+          <button onClick={() => props.onDecrement(props.game)}>
+            <i class="fas fa-angle-left"></i>
+          </button>
+        )}{" "}
+        {amountPlayed}{" "}
+        <button onClick={() => props.onIncrement(props.game)}>
+          <i class="fas fa-angle-right"></i>
+        </button>
       </p>
-      <button onClick={() => props.onDelete(id)}>Remove</button>
+      <button onClick={() => props.onDelete(id)}>
+        <i class="far fa-trash-alt"></i>
+      </button>
     </div>
   );
 }
