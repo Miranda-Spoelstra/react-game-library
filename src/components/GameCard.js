@@ -12,24 +12,25 @@ export default function GameCard(props) {
 
   return (
     <div className="game-card">
-      {imageUrl && <img src={imageUrl} alt={`Box of ${title}`} />}
       <h4>{title}</h4>
-      <p>Published by: {publisher}</p>
-      <p>{description}</p>
-      <p>
+      <p className="card-pub">Published by: {publisher}</p>
+
+      {imageUrl && <img src={imageUrl} alt={`Box of ${title}`} />}
+      <p className="card-desc">{description}</p>
+      <p className="dec-buttons">
         Times played:{" "}
         {amountPlayed > 0 && (
           <button onClick={() => props.onDecrement(props.game)}>
-            <i class="fas fa-angle-left"></i>
+            <i className="fas fa-angle-left"></i>
           </button>
-        )}{" "}
-        {amountPlayed}{" "}
+        )}
+        {amountPlayed}
         <button onClick={() => props.onIncrement(props.game)}>
-          <i class="fas fa-angle-right"></i>
+          <i className="fas fa-angle-right"></i>
         </button>
       </p>
-      <button onClick={() => props.onDelete(id)}>
-        <i class="far fa-trash-alt"></i>
+      <button className="del-button" onClick={() => props.onDelete(id)}>
+        <i className="far fa-trash-alt"></i> Remove
       </button>
     </div>
   );

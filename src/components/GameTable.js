@@ -18,16 +18,20 @@ export default function GameTable(props) {
       <td className="title-col">{title}</td>
       <td className="pub-col">{publisher}</td>
       <td className="desc-col">{description}</td>
-      <td className="played-col">
+      <td className="played-col dec-buttons">
         {amountPlayed > 0 && (
-          <button onClick={() => props.onDecrement(props.game)}><i class="fas fa-angle-left"></i></button>
-        )}{" "}
-        {amountPlayed}{" "}
-        <button onClick={() => props.onIncrement(props.game)}><i class="fas fa-angle-right"></i></button>
+          <button onClick={() => props.onDecrement(props.game)}>
+            <i className="fas fa-angle-left"></i>
+          </button>
+        )}
+        {amountPlayed}
+        <button onClick={() => props.onIncrement(props.game)}>
+          <i className="fas fa-angle-right"></i>
+        </button>
       </td>
       <td className="del-col">
-        <button onClick={() => props.onDelete(id)}>
-          <i class="far fa-trash-alt"></i>
+        <button className="del-button" onClick={() => props.onDelete(id)}>
+          <i className="far fa-trash-alt"></i>
         </button>
       </td>
     </tr>
